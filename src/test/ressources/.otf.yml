@@ -1,0 +1,7 @@
+type: test
+name: TU - HelloWorld
+description: Tests unitaires Maven/JUnit
+steps:
+  - type: junit
+    format: junit
+    path: target/surefire-reports

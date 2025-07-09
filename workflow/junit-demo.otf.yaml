@@ -1,9 +1,0 @@
-workflow:
-  name: JUnit - HelloWorld
-  steps:
-    - name: Exécution des tests JUnit
-      tool: junit
-      input:
-        test-results: test-results.xml
-      output:
-        test-results: results.xml
