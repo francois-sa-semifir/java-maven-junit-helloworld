@@ -1,16 +1,19 @@
 metadata:
-  name: "Pipeline Jenkins vers Squash TM"
+  name: "Test Jenkins vers Squash Orchestrator"
+
 resources:
   files:
     - path: "target/surefire-reports"
       type: junit
+
 jobs:
-  publish:
+  publier-resultats:
     runs-on: inception
     generator: tm.squashtest.org/tm.generator@v1
     with:
-      squashTMUrl: http://squash-tm:8080/squash
+      squashTMUrl: http://squash-tm:8090/squash
       squashTMAutomatedServerLogin: admin
       squashTMAutomatedServerPassword: admin
-      testPlanUuid: "106"
+      testPlanUuid: "106"         
       testPlanType: Iteration
+
