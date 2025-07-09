@@ -1,7 +1,16 @@
-type: test
-name: TU - HelloWorld
-description: Tests unitaires Maven/JUnit
-steps:
-  - type: junit
-    format: junit
-    path: target/surefire-reports
+metadata:
+  name: "Pipeline Jenkins vers Squash TM"
+resources:
+  files:
+    - path: "target/surefire-reports"
+      type: junit
+jobs:
+  publish:
+    runs-on: inception
+    generator: tm.squashtest.org/tm.generator@v1
+    with:
+      squashTMUrl: http://squash-tm:8080/squash
+      squashTMAutomatedServerLogin: admin
+      squashTMAutomatedServerPassword: admin
+      testPlanUuid: "106"
+      testPlanType: Iteration
