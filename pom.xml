@@ -1,26 +1,23 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">  
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
   <artifactId>java-maven-junit-helloworld</artifactId>
   <version>2.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>java-maven-junit-helloworld</name>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.jupiter.version>5.10.2</junit.jupiter.version>
-    <mockito.version>5.12.0</mockito.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <junit.jupiter.version>5.10.0</junit.jupiter.version>
     <jacoco.version>0.8.8</jacoco.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
-    <!-- JUnit 5 API & Engine -->
+    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -28,37 +25,53 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Mockito JUnit 5 Integration -->
+    <!-- Mockito -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.11.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito + JUnit 5 Integration -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>${mockito.version}</version>
+      <version>5.11.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Hamcrest for assertions -->
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
+      <version>2.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <!-- Compiler plugin -->
+      <!-- Compiler Plugin -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
         <configuration>
-          <release>11</release>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
 
-      <!-- Surefire plugin for JUnit 5 -->
+      <!-- Surefire Plugin for JUnit 5 -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.5</version>
         <configuration>
           <useModulePath>false</useModulePath>
         </configuration>
       </plugin>
 
-      <!-- Jacoco for test coverage -->
+      <!-- JaCoCo for code coverage -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -71,7 +84,7 @@
           </execution>
           <execution>
             <id>report</id>
-            <phase>test</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>report</goal>
             </goals>
