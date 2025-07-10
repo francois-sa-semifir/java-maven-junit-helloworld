@@ -11,7 +11,7 @@ jobs:
     generator: tm.squashtest.org/tm.generator@v1
     with:
       squashTMUrl: http://squash-tm:8080/squash
-      squashTMAutomatedServerLogin: admin
-      squashTMAutomatedServerPassword: admin
+      squashTMAutomatedServerLogin: admintest
+      squashTMAutomatedServerPassword: admintest
       testPlanUuid: "106"
       testPlanType: Iteration
