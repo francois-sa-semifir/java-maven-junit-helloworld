@@ -2,8 +2,8 @@ metadata:
   name: Résultats Jenkins vers Squash TM
 resources:
   files:
-    - target/surefire-reports/TEST-com.example.javamavenjunithelloworld.HelloAppTest.xml
-    - target/surefire-reports/TEST-com.example.javamavenjunithelloworld.HelloTest.xml
+    - HelloAppTest.xml
+    - HelloTest.xml
 
 jobs:
   sendResults:
